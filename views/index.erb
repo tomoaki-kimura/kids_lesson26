@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>くりかえしを制御しよう</title>
+  </head>
+  <body>
+    <h3>掃除当番を決めるためのプログラムをつくろう</h3>
+    <p>あなたは貯金をはじめました。</p>
+    <p>例えば、1日目は100円、2日目は110円、3日目は120円というように金額を増やしながら貯金していきます。</p>
+    <p>このペースで貯金した時に10万円貯まるまでの日数を考えて見ましょう。</p>
+
+    <img src="/robot.png" alt="ロボット画像">
+
+    <% if @status %>
+      <p><%= @status[-1][0] %>日目に<%= @status[-1][1] %>円貯まる</p>
+    <% end %>
+
+    <p>※２日目の金額は必ず１日目の金額よりも大きい数字を入れましょう。</p>
+
+    <form action="/" method="GET">
+      <label>1日目の金額: <input type="number" name="first" placeholder="1日目の貯金額を書いてください"></label>
+      <label>2日目の金額: <input type="number" name="second" placeholder="２日目の貯金額を書いてください"></label>
+      <input type="submit" value="計算">
+    </form>
+
+    <% if @status %>
+    <ul>
+      <% @status.each do |count, sum| %>
+        <li><%= count %>日目に<%= sum %>円貯まる</li>
+      <% end %>
+    </ul>
+    <% end %>
+  </body>
+</html>
+
