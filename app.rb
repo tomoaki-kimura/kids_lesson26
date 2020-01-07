@@ -21,5 +21,3 @@ get '/' do
   end
   erb :index
 end
-
-# Lesson3変数を使ってプログラミング
